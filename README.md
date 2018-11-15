@@ -26,20 +26,20 @@ Then, open your browser and access the localhost page. It will request the passw
 
 This repository was created based on [This Tutorial from Riot Games](https://engineering.riotgames.com/news/thinking-inside-container) (the same company that develops League of Legends!).
 
-It contains a `makefile` that encapsulate the commands needed to build and run the docker containers where Jenkins will be installed. 
+It contains a `makefile` that encapsulate the commands needed to build and run the docker containers where Jenkins will be installed. Here is a brief description of each command.
 
-### build
+### $ make build
 
   - Creates volumes for data persistence.
   - Creates network that connects Jenkins and NGINX.
   - Creates Docker images using the Dockerfiles inside `jenkins-master` and `jenkins-nginix`.
   
-### run
+### $ make run
 
   - Runs the `jenkins-master` image in a container.
   - Runs the `jenkins-nginx` image in a container.
 
-### log
+### $ make log
   
   - Prints Jenkins' log file (useful for initial configuration).
 
