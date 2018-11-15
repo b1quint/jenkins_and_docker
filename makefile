@@ -22,3 +22,5 @@ stop:
 clean:
 	@docker rm -v jenkins-master
 	@docker rm -v jenkins-nginx
+log:
+	@docker exec jenkins-master cat /var/log/jenkins/jenkins.log 
