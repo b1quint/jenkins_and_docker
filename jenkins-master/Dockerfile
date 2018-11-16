@@ -1,4 +1,4 @@
-FROM jenkinsci/blueocean
+FROM jenkinsci/blueocean as jenkins-builder
 LABEL maintainer="bquint@gemini.edu"
 
 # Custom variables set here
@@ -16,5 +16,5 @@ RUN chown -R jenkins:jenkins /var/cache/jenkins
 USER jenkins
 
 # Adding some performance options
-ENV JAVA_OPTS='-Xmx8192m'   # 8 Gb RAM
+ENV JAVA_OPTS='-Xmx8192m'
 ENV JENKINS_OPTS='--handlerCountMax=300 --logfile=/var/log/jenkins/jenkins.log --webroot=/var/cache/jenkins/war'
