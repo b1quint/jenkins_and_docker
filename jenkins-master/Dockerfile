@@ -1,4 +1,4 @@
-FROM jenkinsci/blueocean as jenkins-builder
+FROM jenkins/jenkins:lts
 LABEL maintainer="bquint@gemini.edu"
 
 # Custom variables set here
@@ -7,8 +7,12 @@ ARG agent_port=50000
 # Enable agent port
 ENV JENKINS_SLAVE_AGENT_PORT ${agent_port}
 
-# Create folders for persistence
 USER root
+
+# Change Docker shell to bash
+RUN apt-get update && apt-get install -y ruby make bash curl
+
+# Create folders for persistence
 RUN mkdir /var/log/jenkins
 RUN mkdir /var/cache/jenkins
 RUN chown -R jenkins:jenkins /var/log/jenkins
